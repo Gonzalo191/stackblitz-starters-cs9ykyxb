@@ -270,6 +270,7 @@ interface MensajeChat {
         </div>
 
         <div class="pantalla" *ngIf="pantallaActual === 'inventario'">
+          <button type="button" class="btn-volver" (click)="irA('registro')">‹ Volver</button>
           <div class="lista-alertas-cards">
             <div class="alerta-card" *ngFor="let a of alertasVisibles(); trackBy: trackByIndex" (click)="abrirDetalleAlerta(a)">
               <div class="alerta-card-icono">
@@ -289,21 +290,10 @@ interface MensajeChat {
           <button type="button" class="btn-outline" *ngIf="alertasInventario().length > 3" (click)="mostrarTodasAlertas = !mostrarTodasAlertas">
             {{ mostrarTodasAlertas ? 'Ver menos alertas' : 'Ver todas las alertas' }}
           </button>
-
-          <div class="tabla-inventario">
-            <div class="tabla-fila tabla-header">
-              <span>Producto</span><span>Stock</span><span>Mín.</span><span>Vence</span>
-            </div>
-            <div class="tabla-fila tabla-producto" *ngFor="let p of inventario; trackBy: trackByIndex" (click)="abrirDetalleProducto(p)">
-              <span>{{ p.nombre }}</span>
-              <span>{{ p.stock }}</span>
-              <span>{{ p.stockMinimo }}</span>
-              <span>{{ p.vencimiento }}</span>
-            </div>
-          </div>
         </div>
 
         <div class="pantalla" *ngIf="pantallaActual === 'caja'">
+          <button type="button" class="btn-volver" (click)="irA('registro')">‹ Volver</button>
           <div class="lista-filas">
             <div class="fila-card">
               <div class="fila-icono"><ng-container [ngTemplateOutlet]="iconBars"></ng-container></div>
@@ -344,6 +334,7 @@ interface MensajeChat {
         </div>
 
         <div class="pantalla" *ngIf="pantallaActual === 'revisarInventario'">
+          <button type="button" class="btn-volver" (click)="irA('registro')">‹ Volver</button>
           <div class="tabla-inventario">
             <div class="tabla-fila tabla-fila-3col tabla-header">
               <span>Producto</span><span>Stock</span><span>Últ. compra</span>
